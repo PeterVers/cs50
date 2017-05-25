@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     {
         fclose(outptr);
         fclose(inptr);
-        fprintf(stderr, "Unsupported file format.\n");
+        fprintf(stderr, "Improper file type.\n");
         return 4;
     }
     
