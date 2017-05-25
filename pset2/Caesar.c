@@ -1,13 +1,14 @@
 #include <stdio.h>
-#include <cs50.h>
 #include <string.h>
 #include <ctype.h>
 
-int main(int argc, string argv[])
+//This is a cipher program that takes a string, then encodes using it a simple Caesar cipher.
+int main(int argc, char* argv[])
 {
     int key = atoi(argv[1]);
     printf("Please enter a string.\n");
-    string pt = GetString();
+    char pt[256];
+    gets(pt);
     printf("plaintext: %s\n", pt);
     printf("ciphertext: ");
     for(int i = 0; i < strlen(pt); i++)
