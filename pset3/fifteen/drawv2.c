@@ -3,6 +3,8 @@
 #define DIM_MIN 3
 #define DIM_MAX 9
 
+//Implements the functions to be used within the Game of Fifteen
+
 int board[DIM_MAX][DIM_MAX];
 
 void init(int dim)
