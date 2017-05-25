@@ -1,5 +1,5 @@
 /**
- * Copies a BMP piece by piece, just because.
+ * Resizes a BMP Image file.
  */
        
 #include <stdio.h>
@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // remember filenames
     float n = atof(argv[1]);
     char *infile = argv[2];
     char *outfile = argv[3];
@@ -53,13 +52,13 @@ int main(int argc, char *argv[])
     BITMAPINFOHEADER bi;
     fread(&bi, sizeof(BITMAPINFOHEADER), 1, inptr);
     
-    // ensure infile is (likely) a 24-bit uncompressed BMP 4.0
+    // Make sure infile is a 24-bit uncompressed BMP 4.0 file
     if (bf.bfType != 0x4d42 || bf.bfOffBits != 54 || bi.biSize != 40 || 
         bi.biBitCount != 24 || bi.biCompression != 0)
     {
         fclose(outptr);
         fclose(inptr);
-        fprintf(stderr, "Unsupported file format.\n");
+        fprintf(stderr, "Improper file type.\n");
         return 4;
     }
     
@@ -70,8 +69,7 @@ int main(int argc, char *argv[])
     nbi = bi;
     nbi.biWidth *= n;
     nbi.biHeight *= n;
-    printf("Stilling Working 1...\n");
-    // determine padding for scanlines
+    // determine padding for scanlines. Then add in the new padding.
      padding = (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
     int newpadding = (4 - (nbi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
     
@@ -128,7 +126,6 @@ int main(int argc, char *argv[])
              
         }
         
-        printf("Still Working 2...\n");
         
         // skip over padding, if any
         fseek(inptr, padding, SEEK_CUR);
