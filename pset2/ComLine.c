@@ -1,12 +1,13 @@
 #include <stdio.h>
-#include <cs50.h>
 #include <string.h>
 #include <ctype.h>
 
-int main(int argc, string argv[])
+//This program simply takes a name and returns the initials, capitalized.
+int main()
 {
     printf("Please enter a name: \n");
-    string s = GetString();
+    char s[50];
+    gets(s);
     if (s != NULL)
     {
         if(s[0] >= 65 && s[0] <= 122)
