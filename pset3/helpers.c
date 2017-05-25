@@ -1,8 +1,7 @@
 /**
  * helpers.c
  *
- * Helper functions for Problem Set 3.
- Provided by CS50.
+ * Helper functions for Problem Set 3. Implemented by myself.
  */
  
 #include <cs50.h>
