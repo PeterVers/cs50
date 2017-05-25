@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <time.h>
 
-//A program to practice implementations of different sorting methods. 
+//A program to practice implementations of different sorting and searching methods. 
 
 const int CONST_MAX_NUM_ELEM = 1000;
 clock_t begin;
