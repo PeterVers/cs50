@@ -1,16 +1,16 @@
 #include <stdio.h>
-#include <cs50.h>
 #include <string.h>
 #include <ctype.h>
 
-int main(int argc, string argv[])
+//A slightly more advanced Vigenere cipher is used in this program to encode messages.
+int main(int argc, char* argv[])
 {
     if(argc != 2)
     {
         printf("Error: Please enter an argument.\n");
         return 1;
     }
-    string key = argv[1];
+    char* key = argv[1];
     for(int x = 0; x < strlen(key); x++)
     {
         if((key[x] < 65 || key[x] > 90) && (key[x] < 97 || key[x] > 122))
@@ -23,7 +23,8 @@ int main(int argc, string argv[])
     char upperalphaidx[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     char loweralphaidx[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
     printf("Please enter a string.\n");
-    string pt = GetString();
+    char pt[256];
+    gets(pt);
     printf("plaintext: %s\n", pt);
     printf("ciphertext: ");
     for(int i = 0, k = 0; i < strlen(pt); i++)
@@ -37,7 +38,7 @@ int main(int argc, string argv[])
              for(int j = 0; j < 26; j++)
              {
                 if(upperalphaidx[j] == pt[i])
-                {   
+                {
                         if(k == strlen(key))
                         {
                             k = 0;
@@ -49,16 +50,16 @@ int main(int argc, string argv[])
                                 if(upperalphaidx[l] == key[k])
                                 {
                                     c =(j+l) % 26;
-                                    
+
                                 }
                                 else if(loweralphaidx[l] == key[k])
                                 {
                                     c =(j+l) % 26;
-                                    
+
                                 }
                             }
                         }
-                    printf("%c", upperalphaidx[c]);     
+                    printf("%c", upperalphaidx[c]);
                 }
              }
          k++;
@@ -69,7 +70,7 @@ int main(int argc, string argv[])
             for(int j = 0; j < 26; j++)
              {
                 if(loweralphaidx[j] == pt[i])
-                {  
+                {
                     if(k == strlen(key))
                     {
                         k = 0;
@@ -98,3 +99,4 @@ int main(int argc, string argv[])
     printf("\n");
     return 0;
 }
+
