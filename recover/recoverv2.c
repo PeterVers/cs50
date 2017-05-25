@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+//Program to recover deleted JPEG image data from given memory card file.
+
 int main(int argc, char *argv[])
 {
     if(argc != 2)
